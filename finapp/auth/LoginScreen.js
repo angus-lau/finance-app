@@ -1,9 +1,15 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions, KeyboardAvoidingView, ScrollView, Platform} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
 export default function LoginScreen() {
+    const navigation = useNavigation();
+        
+          const handleNext = () => {
+            navigation.navigate('DashboardScreen');
+          };
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
@@ -32,8 +38,8 @@ export default function LoginScreen() {
               secureTextEntry
               placeholderTextColor="#999"
             />
-            <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginText}>Login</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={handleNext}>
+            <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
 
             <View style={styles.footerLinks}>
