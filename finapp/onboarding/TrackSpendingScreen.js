@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
+import styles from './SharedStyles';
 
-export default function TrackSpendingScreen({ styles, pageIndex }) {
+export default function TrackSpendingScreen() {
+  
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Trickle</Text>
@@ -12,7 +15,7 @@ export default function TrackSpendingScreen({ styles, pageIndex }) {
       </Text>
       <View style={styles.pagination}>
         <View style={styles.dot} />
-        <View style={[styles.dot, pageIndex === 1 && styles.activeDot]} />
+        <View style={[styles.dot, styles.activeDot]} />
         <View style={styles.dot} />
       </View>
       <TouchableOpacity style={styles.button} onPress={() => {}}>
