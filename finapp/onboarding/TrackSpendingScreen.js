@@ -2,13 +2,28 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './SharedStyles';
+import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function TrackSpendingScreen() {
   const navigation = useNavigation();
 
   const handleNext = () => {
-    navigation.navigate('RealTimeAlerts'); // 🔁 Update this to your next screen name
+    navigation.navigate('RealTimeAlerts'); 
   };
+
+  
+        const [fontsLoaded] = Font.useFonts({
+          FungkyBrow: require('../assets/fonts/Fungky.otf'),
+        });
+        
+        React.useEffect(() => {
+          if (fontsLoaded) {
+            SplashScreen.hideAsync();
+          }
+        }, [fontsLoaded]);
+        
+        if (!fontsLoaded) return null;
 
 
   return (

@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './SharedStyles';
+import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function AddMultipleCardsScreen() {
   const navigation = useNavigation();
@@ -9,6 +11,18 @@ export default function AddMultipleCardsScreen() {
   const handleNext = () => {
     navigation.navigate('TrackSpending');
   };
+
+  const [fontsLoaded] = Font.useFonts({
+  FungkyBrow: require('../assets/fonts/Fungky.otf'),
+});
+
+React.useEffect(() => {
+  if (fontsLoaded) {
+    SplashScreen.hideAsync();
+  }
+}, [fontsLoaded]);
+
+if (!fontsLoaded) return null;
 
 
   return (
