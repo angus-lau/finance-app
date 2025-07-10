@@ -1,59 +1,69 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions, KeyboardAvoidingView, ScrollView, Platform} from 'react-native';
 
 const { width } = Dimensions.get('window');
 
 export default function LoginScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topSection}>
-        <Text style={styles.welcomeText}>Login</Text>
-        <Image
-          source={require('../assets/conq-credit.png')}
-          style={styles.illustration}
-          resizeMode="contain"
-        />
-      </View>
-
-      <View style={styles.formSection}>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          placeholderTextColor="#999"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          placeholderTextColor="#999"
-        />
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-
-        <View style={styles.footerLinks}>
-
-          <TouchableOpacity>
-            <Text style={styles.rightText}>Forgot Password?</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.dividerContainer}>
-            <View style={styles.line} />
-            <Text style={styles.dividerText}>Continue With</Text>
-            <View style={styles.line} />
-        </View>
-
-        <TouchableOpacity style={styles.googleButton}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.topSection}>
+            <Text style={styles.welcomeText}>Login</Text>
             <Image
-            source={{ uri: 'https://developers.google.com/static/identity/images/g-logo.png' }}
-            style={styles.googleIcon}
+              source={require('../assets/conq-credit.png')}
+              style={styles.illustration}
+              resizeMode="contain"
             />
-            <Text style={styles.googleButtonText}>Google</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+          </View>
+
+          <View style={styles.formSection}>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              placeholderTextColor="#999"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              secureTextEntry
+              placeholderTextColor="#999"
+            />
+            <TouchableOpacity style={styles.loginButton}>
+              <Text style={styles.loginText}>Login</Text>
+            </TouchableOpacity>
+
+            <View style={styles.footerLinks}>
+              <TouchableOpacity>
+                <Text style={styles.rightText}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.dividerContainer}>
+              <View style={styles.line} />
+              <Text style={styles.dividerText}>Continue With</Text>
+              <View style={styles.line} />
+            </View>
+
+            <TouchableOpacity style={styles.googleButton}>
+              <Image
+                source={{
+                  uri: 'https://developers.google.com/static/identity/images/g-logo.png',
+                }}
+                style={styles.googleIcon}
+              />
+              <Text style={styles.googleButtonText}>Google</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

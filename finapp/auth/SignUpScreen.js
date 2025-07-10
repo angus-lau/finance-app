@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions, Platform, KeyboardAvoidingView, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
@@ -11,6 +11,12 @@ export default function SignUpScreen() {
       navigation.navigate('LoginScreen');
     };
   return (
+    <KeyboardAvoidingView
+    style={styles.container}
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+  >
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <SafeAreaView style={styles.container}></SafeAreaView>
     <SafeAreaView style={styles.container}>
       <View style={styles.topSection}>
         <Text style={styles.welcomeText}>Sign Up</Text>
@@ -59,7 +65,9 @@ export default function SignUpScreen() {
 
       </View>
     </SafeAreaView>
-  );
+    </ScrollView>
+  </KeyboardAvoidingView>
+);
 }
 
 const styles = StyleSheet.create({
