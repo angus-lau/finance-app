@@ -3,7 +3,6 @@ import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView
 import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
-
 export default function LoginScreen() {
     const navigation = useNavigation();
         
