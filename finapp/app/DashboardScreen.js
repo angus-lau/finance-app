@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, StatusBar, FlatList, Image, TouchableOpacity, ScrollView,} from 'react-native';
 
 export default function DashboardScreen() {
   const transactions = [
@@ -25,8 +15,8 @@ export default function DashboardScreen() {
     {
       id: '2',
       name: 'Dunkin Donuts',
-      subtitle: 'Purchased with **** 9817',
-      amount: '-$5.99',
+      subtitle: 'Purchased with **** 4125',
+      amount: '-$25.13',
       date: 'June 27, 2025 13:05',
       image: 'https://www.pngmart.com/files/22/Dunkin-Donuts-Logo-PNG-Picture.png',
       positive: false,
@@ -34,8 +24,8 @@ export default function DashboardScreen() {
     {
       id: '3',
       name: 'Starbucks',
-      subtitle: 'Purchased with **** 1276',
-      amount: '-$7.09',
+      subtitle: 'Purchased with **** 1142',
+      amount: '-$8.17',
       date: 'June 13, 2025 03:42',
       image: 'https://download.logo.wine/logo/Starbucks/Starbucks-Logo.wine.png',
       positive: false,
@@ -43,8 +33,8 @@ export default function DashboardScreen() {
     {
       id: '4',
       name: 'Netflix',
-      subtitle: 'Purchased with **** 2319',
-      amount: '-$13.99',
+      subtitle: 'Purchased with **** 3515',
+      amount: '-$6.99',
       date: 'June 7, 2025 19:10',
       image: 'https://toppng.com/uploads/preview/netflix-logo-transparent-png-11660600805igxhzrr6b7.png',
       positive: false,
@@ -52,8 +42,8 @@ export default function DashboardScreen() {
     {
       id: '5',
       name: 'Spotify',
-      subtitle: 'Purchased with **** 6723',
-      amount: '-$9.99',
+      subtitle: 'Purchased with **** 9101',
+      amount: '-$4.99',
       date: 'June 2, 2025 18:30',
       image: 'https://www.pngmart.com/files/22/Spotify-Logo-PNG-Transparent.png',
       positive: false,
@@ -61,8 +51,8 @@ export default function DashboardScreen() {
     {
       id: '6',
       name: 'Apple',
-      subtitle: 'Purchased with **** 4567',
-      amount: '-$2.99',
+      subtitle: 'Purchased with **** 1234',
+      amount: '-$1,932.12',
       date: 'May 29, 2025 17:00',
       image: 'https://images.icon-icons.com/2429/PNG/512/apple_logo_icon_147318.png',
       positive: false,
@@ -71,7 +61,7 @@ export default function DashboardScreen() {
       id: '7',
       name: 'Wilson Leung',
       subtitle: 'Venmo',
-      amount: '+$120.00',
+      amount: '+$20.00',
       date: 'May 28, 2025 15:30',
       image: 'https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg',
       positive: true,
@@ -110,13 +100,13 @@ export default function DashboardScreen() {
         <View style={styles.cardContainer}>
         <View style={styles.card}>
             <View style={styles.cardHeader}>
-            <Text style={styles.cardBrand}>VISA</Text>
+            <Text style={styles.cardBrand}>MASTERCARD</Text>
             <Text style={styles.cardNumber}>**** **** **** 3567</Text>
             </View>
             <View style={styles.cardFooter}>
             <View>
-                <Text style={styles.cardLabel}>Баланс</Text>
-                <Text style={styles.cardBalance}>$688</Text>
+                <Text style={styles.cardLabel}>Balance</Text>
+                <Text style={styles.cardBalance}>$123,456</Text>
             </View>
             <Image
                 source={{ uri: 'https://developer.apple.com/design/human-interface-guidelines/apple-pay/images/apple-pay-logo_2x.png' }}
@@ -125,15 +115,10 @@ export default function DashboardScreen() {
             />
             </View>
         </View>
-        <View style={styles.dotsContainer}>
-            <View style={[styles.dot, styles.dotActive]} />
-            <View style={styles.dot} />
-            <View style={styles.dot} />
-        </View>
         </View>
         <Text style={styles.heading}>Saved</Text>
         <View style={{ marginBottom: 20 }}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 20 }}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: -10 }}>
           <View style={styles.savedItem}>
             <Text style={styles.plusIcon}>+</Text>
           </View>
@@ -148,6 +133,10 @@ export default function DashboardScreen() {
           <View style={styles.savedItem}>
             <Image source={{ uri: 'https://i.imgur.com/hA9r88I.png' }} style={styles.savedIcon} />
             <Text style={styles.savedLabel}>Savings</Text>
+          </View>
+          <View style={styles.savedItem}>
+            <Image source={{ uri: 'https://i.imgur.com/Dll0zfB.png' }} style={styles.savedIcon} />
+            <Text style={styles.savedLabel}>Transaction</Text>
           </View>
         </ScrollView>
         </View>
@@ -210,6 +199,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#222',
     marginBottom: 20,
+    marginTop: 40,
   },
   transactionRow: {
     flexDirection: 'row',
@@ -261,13 +251,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   cardContainer: {
-  marginBottom: 30,
+  marginBottom: -20,
 },
 card: {
-  backgroundColor: '#111',
+  backgroundColor: '#252525',
   borderRadius: 12,
   padding: 20,
   marginBottom: 10,
+  height: 200,
+  justifyContent: 'space-between',
 },
 cardHeader: {
   flexDirection: 'row',
