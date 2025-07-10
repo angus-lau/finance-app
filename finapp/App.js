@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as Font from 'expo-font';
 import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import PagerView from 'react-native-pager-view';
+import AddMultipleCardsScreen from './onboarding/AddMultipleCardsScreen';
+import TrackSpendingScreen from './onboarding/TrackSpendingScreen';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -35,39 +37,18 @@ export default function App() {
       onPageSelected={(e) => setPageIndex(e.nativeEvent.position)}
       ref={pagerRef}
     >
-      <SafeAreaView key="1" style={styles.container}>
-        <Text style={styles.title}>Trickle</Text>
-        <Image source={require('./assets/wallet-cards.png')} style={styles.illustration} resizeMode="contain" />
-        <Text style={styles.descriptor}>Add Multiple Cards</Text>
-        <Text style={styles.description}>
-          Add any kind of debit or credit card from Visa to American Express to MasterCard.
-        </Text>
-        <View style={styles.pagination}>
-          <View style={[styles.dot, pageIndex === 0 && styles.activeDot]} />
-          <View style={[styles.dot, pageIndex === 1 && styles.activeDot]} />
-          <View style={styles.dot} />
-        </View>
-        <TouchableOpacity style={styles.button} onPress={goToNextPage}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <AddMultipleCardsScreen
+        key="1"
+        styles={styles}
+        pageIndex={pageIndex}
+        goToNextPage={goToNextPage}
+      />
 
-      <SafeAreaView key="2" style={styles.container}>
-        <Text style={styles.title}>Trickle</Text>
-        <Image source={require('./assets/cash-coins.png')} style={styles.illustration} resizeMode="contain" />
-        <Text style={styles.descriptor}>Track Spending</Text>
-        <Text style={styles.description}>
-          Monitor your expenses across all cards and categories in real-time.
-        </Text>
-        <View style={styles.pagination}>
-          <View style={styles.dot} />
-          <View style={[styles.dot, pageIndex === 1 && styles.activeDot]} />
-          <View style={styles.dot} />
-        </View>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
-          <Text style={styles.buttonText}>Get Started</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <TrackSpendingScreen
+        key="2"
+        styles={styles}
+        pageIndex={pageIndex}
+      />
     </PagerView>
   );
 }
@@ -81,14 +62,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#F9FAFB',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 40,
+    paddingTop: 20,
   },
   title: {
     fontFamily: 'FungkyBrow',
     fontSize: 38,
     color: '#A7D338',
     textAlign: 'center',
-    paddingTop: 20,
+    paddingTop: 80,
     paddingBottom: 20,
   },
   illustration: {
