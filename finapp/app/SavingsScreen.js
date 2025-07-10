@@ -80,6 +80,7 @@ export default function SavingsScreen() {
           width={Dimensions.get('window').width}
           adjustToWidth={true}
           initialSpacing={0}
+          disableScroll={true}
           endSpacing={0}
           spacing={13.5}
           areaChart
