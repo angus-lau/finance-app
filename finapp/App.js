@@ -8,6 +8,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import AddMultipleCardsScreen from './onboarding/AddMultipleCardsScreen';
 import TrackSpendingScreen from './onboarding/TrackSpendingScreen';
 import RealTimeAlertsScreen from './onboarding/RealTimeAlertsScreen';
+import LoginScreen from './auth/LoginScreen';
+import SignUpScreen from './auth/SignUpScreen';
 
 
 const Stack = createStackNavigator();
@@ -16,7 +18,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = Font.useFonts({
-    FungkyBrow: require('./assets/fonts/Fungky.otf'), // ✅ Make sure this path is correct
+    FungkyBrow: require('./assets/fonts/Fungky.otf'),
   });
 
   React.useEffect(() => {
@@ -39,6 +41,8 @@ export default function App() {
         <Stack.Screen name="AddCards" component={AddMultipleCardsScreen} />
         <Stack.Screen name="TrackSpending" component={TrackSpendingScreen} />
         <Stack.Screen name="RealTimeAlerts" component={RealTimeAlertsScreen} />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
