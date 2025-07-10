@@ -10,6 +10,7 @@ import TrackSpendingScreen from './onboarding/TrackSpendingScreen';
 import RealTimeAlertsScreen from './onboarding/RealTimeAlertsScreen';
 import LoginScreen from './auth/LoginScreen';
 import SignUpScreen from './auth/SignUpScreen';
+import DashboardScreen from './app/DashboardScreen';
 
 
 const Stack = createStackNavigator();
@@ -43,6 +44,7 @@ export default function App() {
         <Stack.Screen name="RealTimeAlerts" component={RealTimeAlertsScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

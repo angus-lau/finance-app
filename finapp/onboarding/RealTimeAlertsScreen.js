@@ -7,7 +7,7 @@ export default function RealTimeAlertsScreen() {
     const navigation = useNavigation();
     
       const handleNext = () => {
-        navigation.navigate('SignUpScreen'); // 🔁 Update this to your next screen name
+        navigation.navigate('SignUpScreen');
       };
   
 
