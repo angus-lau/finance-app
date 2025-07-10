@@ -13,11 +13,11 @@ export default function AddMultipleCardsScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Trickle</Text>
+      <Text style={styles.title}>Trickl</Text>
       <Image source={require('../assets/wallet-cards.png')} style={styles.illustration} resizeMode="contain" />
       <Text style={styles.descriptor}>Add Multiple Cards</Text>
       <Text style={styles.description}>
-        Add any kind of debit or credit card from Visa to American Express to MasterCard.
+        Securely link any major debit or credit card, including Visa, Wealthsimple and American Express.
       </Text>
       <View style={styles.pagination}>
         <View style={[styles.dot, styles.activeDot]} />
