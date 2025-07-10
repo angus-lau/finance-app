@@ -6,7 +6,7 @@ export default function TransactionScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <View style={styles.content}>
-        <Text style={styles.heading}>Savings</Text>
+        <Text style={styles.heading}>Transactions</Text>
         {/* Add your dashboard components here */}
       </View>
     </SafeAreaView>
