@@ -11,6 +11,10 @@ import RealTimeAlertsScreen from './onboarding/RealTimeAlertsScreen';
 import LoginScreen from './auth/LoginScreen';
 import SignUpScreen from './auth/SignUpScreen';
 import DashboardScreen from './app/DashboardScreen';
+import AnalyticsScreen from './app/AnalyticsScreen';
+import BudgetScreen from './app/BudgetScreen';
+import SavingsScreen from './app/SavingsScreen';
+import TransactionScreen from './app/TransactionScreen';
 
 
 const Stack = createStackNavigator();
@@ -18,17 +22,6 @@ const Stack = createStackNavigator();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontsLoaded] = Font.useFonts({
-    FungkyBrow: require('./assets/fonts/Fungky.otf'),
-  });
-
-  React.useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) return null;
 
   return (
     <NavigationContainer>
@@ -45,6 +38,10 @@ export default function App() {
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+        <Stack.Screen name="AnalyticsScreen" component={AnalyticsScreen} />
+        <Stack.Screen name="BudgetScreen" component={BudgetScreen} />
+        <Stack.Screen name="SavingsScreen" component={SavingsScreen} />
+        <Stack.Screen name="TransactionScreen" component={TransactionScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
