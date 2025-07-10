@@ -17,7 +17,7 @@ export default function TrackSpendingScreen() {
       <Image source={require('../assets/cash-coins.png')} style={styles.illustration} resizeMode="contain" />
       <Text style={styles.descriptor}>Track Spending</Text>
       <Text style={styles.description}>
-        See every purchase, from every card, in every category—instantly.
+        See every purchase, from every card, in every category instantly.
       </Text>
       <View style={styles.pagination}>
         <View style={styles.dot} />

@@ -1,8 +1,14 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './SharedStyles';
 
 export default function RealTimeAlertsScreen() {
+    const navigation = useNavigation();
+    
+      const handleNext = () => {
+        navigation.navigate('SignUpScreen'); // 🔁 Update this to your next screen name
+      };
   
 
   return (
@@ -18,7 +24,7 @@ export default function RealTimeAlertsScreen() {
         <View style={styles.dot} />
         <View style={[styles.dot, styles.activeDot]} />
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      <TouchableOpacity style={styles.button} onPress={handleNext}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </SafeAreaView>
