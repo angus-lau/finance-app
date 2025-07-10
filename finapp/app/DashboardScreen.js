@@ -1,7 +1,26 @@
 import React from 'react';
 import {View, Text, StyleSheet, SafeAreaView, StatusBar, FlatList, Image, TouchableOpacity, ScrollView,} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function DashboardScreen() {
+    const navigation = useNavigation();
+            
+        const handleSavings = () => {
+        navigation.navigate('SavingsScreen');
+        };
+
+        const handleTransaction = () => {
+        navigation.navigate('TransactionScreen');
+        };
+
+        const handleBudget = () => {
+        navigation.navigate('BudgetScreen');
+        };
+
+        const handleAnalytics = () => {
+        navigation.navigate('AnalyticsScreen');
+        };
+
   const transactions = [
     {
       id: '1',
@@ -108,11 +127,6 @@ export default function DashboardScreen() {
                 <Text style={styles.cardLabel}>Balance</Text>
                 <Text style={styles.cardBalance}>$123,456</Text>
             </View>
-            <Image
-                source={{ uri: 'https://developer.apple.com/design/human-interface-guidelines/apple-pay/images/apple-pay-logo_2x.png' }}
-                style={styles.applePayLogo}
-                resizeMode="contain"
-            />
             </View>
         </View>
         </View>
@@ -122,22 +136,30 @@ export default function DashboardScreen() {
           <View style={styles.savedItem}>
             <Text style={styles.plusIcon}>+</Text>
           </View>
+            <TouchableOpacity onPress={handleAnalytics}>
           <View style={styles.savedItem}>
             <Image source={{ uri: 'https://i.imgur.com/CgB521a.png'}} style={styles.savedIcon} />
             <Text style={styles.savedLabel}>Analytics</Text>
           </View>
+          </TouchableOpacity>
+            <TouchableOpacity onPress={handleBudget}>
           <View style={styles.savedItem}>
             <Image source={{ uri: 'https://i.imgur.com/cDIzcBf.png' }} style={styles.savedIcon} />
             <Text style={styles.savedLabel}>Budget</Text>
           </View>
+          </TouchableOpacity>
+            <TouchableOpacity onPress={handleSavings}>
           <View style={styles.savedItem}>
             <Image source={{ uri: 'https://i.imgur.com/hA9r88I.png' }} style={styles.savedIcon} />
             <Text style={styles.savedLabel}>Savings</Text>
           </View>
+          </TouchableOpacity>
+            <TouchableOpacity onPress={handleTransaction}>
           <View style={styles.savedItem}>
             <Image source={{ uri: 'https://i.imgur.com/Dll0zfB.png' }} style={styles.savedIcon} />
             <Text style={styles.savedLabel}>Transaction</Text>
           </View>
+        </TouchableOpacity>
         </ScrollView>
         </View>
         <Text style={styles.heading}>Transactions</Text>
