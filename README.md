@@ -35,3 +35,5 @@ Start the server
   npx expo start
 ```
 
+https://github.com/user-attachments/assets/3c36f9bb-eef3-40e8-8630-cb318c012f4e
+
