@@ -66,37 +66,37 @@ export default function AnalyticsScreen() {
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#3DD598" }]} />
             <Text style={styles.transactionLabel}>Food</Text>
-            <Text style={styles.transactionValue}>-$23.51</Text>
+            <Text style={styles.transactionValue}>$23.51</Text>
           </View>
 
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#A66DD4" }]} />
             <Text style={styles.transactionLabel}>Transport</Text>
-            <Text style={styles.transactionValue}>-$152.67</Text>
+            <Text style={styles.transactionValue}>$152.67</Text>
           </View>
 
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#826f88" }]} />
             <Text style={styles.transactionLabel}>Clothes</Text>
-            <Text style={styles.transactionValue}>-$163.11</Text>
+            <Text style={styles.transactionValue}>$163.11</Text>
           </View>
 
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#fcb384" }]} />
             <Text style={styles.transactionLabel}>Entertainment</Text>
-            <Text style={styles.transactionValue}>-$734.26</Text>
+            <Text style={styles.transactionValue}>$734.26</Text>
           </View>
 
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#8bf7fe" }]} />
             <Text style={styles.transactionLabel}>Miscellaneous</Text>
-            <Text style={styles.transactionValue}>-$213.13</Text>
+            <Text style={styles.transactionValue}>$213.13</Text>
           </View>
 
           <View style={styles.transactionItem}>
             <View style={[styles.dot, { backgroundColor: "#ba5acf" }]} />
             <Text style={styles.transactionLabel}>Gifts</Text>
-            <Text style={styles.transactionValue}>-$1,531.83</Text>
+            <Text style={styles.transactionValue}>$1,531.83</Text>
           </View>
         </View>
       </View>
