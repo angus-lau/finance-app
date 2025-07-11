@@ -40,7 +40,7 @@ const [request, response, promptAsync] = Google.useAuthRequest({
   if (response?.type === 'success') {
     const { authentication } = response;
     console.log('Access Token:', authentication.accessToken);
-    navigation.navigate('DashboardScreen'); // or save token for future use
+    navigation.navigate('DashboardScreen');
   }
 }, [response]);
 
