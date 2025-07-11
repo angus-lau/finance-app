@@ -1,25 +1,60 @@
-import React from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet, Image, SafeAreaView, Dimensions, KeyboardAvoidingView, ScrollView, Platform} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+  Dimensions,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import * as Google from "expo-auth-session/providers/google";
+import * as WebBrowser from "expo-web-browser";
+import * as AuthSession from 'expo-auth-session';
 
-const { width } = Dimensions.get('window');
+
+WebBrowser.maybeCompleteAuthSession();
+
+console.log(AuthSession.makeRedirectUri({ useProxy: true }));
+const { width } = Dimensions.get("window");
 export default function LoginScreen() {
-    const navigation = useNavigation();
-        
-          const handleNext = () => {
-            navigation.navigate('DashboardScreen');
-          };
+  const navigation = useNavigation();
+
+  const handleNext = () => {
+    navigation.navigate("DashboardScreen");
+  };
+
+const [request, response, promptAsync] = Google.useAuthRequest({
+  expoClientId: 'EXPO_CLIENT_ID',
+  iosClientId: 'IOS_CLIENT_ID',
+  redirectUri: 'REDIRECT_URI',
+});
+
+
+  React.useEffect(() => {
+  if (response?.type === 'success') {
+    const { authentication } = response;
+    console.log('Access Token:', authentication.accessToken);
+    navigation.navigate('DashboardScreen'); // or save token for future use
+  }
+}, [response]);
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <SafeAreaView style={styles.container}>
           <View style={styles.topSection}>
             <Text style={styles.welcomeText}>Login</Text>
             <Image
-              source={require('../assets/conq-credit.png')}
+              source={require("../assets/conq-credit.png")}
               style={styles.illustration}
               resizeMode="contain"
             />
@@ -38,7 +73,7 @@ export default function LoginScreen() {
               placeholderTextColor="#999"
             />
             <TouchableOpacity style={styles.loginButton} onPress={handleNext}>
-            <Text style={styles.loginText}>Login</Text>
+              <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
 
             <View style={styles.footerLinks}>
@@ -53,15 +88,15 @@ export default function LoginScreen() {
               <View style={styles.line} />
             </View>
 
-            <TouchableOpacity style={styles.googleButton}>
-              <Image
-                source={{
-                  uri: 'https://developers.google.com/static/identity/images/g-logo.png',
-                }}
-                style={styles.googleIcon}
-              />
-              <Text style={styles.googleButtonText}>Google</Text>
-            </TouchableOpacity>
+            <TouchableOpacity style={styles.googleButton} onPress={() => promptAsync()}>
+  <Image
+    source={{
+      uri: 'https://developers.google.com/static/identity/images/g-logo.png',
+    }}
+    style={styles.googleIcon}
+  />
+  <Text style={styles.googleButtonText}>Google</Text>
+</TouchableOpacity>
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -69,22 +104,21 @@ export default function LoginScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: "#F9FAFB",
   },
   topSection: {
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 40,
   },
   welcomeText: {
     fontSize: 22,
-    color: 'black',
-    fontWeight: 'bold',
+    color: "black",
+    fontWeight: "bold",
     marginBottom: 50,
   },
   illustration: {
@@ -96,7 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 12,
@@ -105,55 +139,55 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   loginButton: {
-    backgroundColor: '#007A74',
+    backgroundColor: "#007A74",
     paddingVertical: 14,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 10,
     elevation: 2,
   },
   loginText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   footerLinks: {
     marginTop: 24,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
   leftText: {
     fontSize: 14,
-    color: '#555',
+    color: "#555",
   },
   rightText: {
     fontSize: 14,
-    color: '#007A74',
-    fontWeight: '500',
+    color: "#007A74",
+    fontWeight: "500",
   },
   dividerContainer: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  marginVertical: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 20,
   },
   line: {
     flex: 1,
     height: 1,
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc",
   },
   dividerText: {
     marginHorizontal: 12,
     fontSize: 13,
-    color: '#666',
+    color: "#666",
   },
   googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 12,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
   },
   googleIcon: {
     width: 18,
@@ -162,7 +196,7 @@ const styles = StyleSheet.create({
   },
   googleButtonText: {
     fontSize: 15,
-    color: '#000',
-    fontWeight: '500',
+    color: "#000",
+    fontWeight: "500",
   },
 });
