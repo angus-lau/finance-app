@@ -61,7 +61,7 @@ export default function DashboardScreen() {
     {
       id: '5',
       name: 'Spotify',
-      subtitle: 'Purchased with **** 9101',
+      subtitle: 'Purchased with **** 9101 ',
       amount: '-$4.99',
       date: 'June 2, 2025 18:30',
       image: 'https://www.pngmart.com/files/22/Spotify-Logo-PNG-Transparent.png',
